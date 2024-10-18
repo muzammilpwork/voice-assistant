@@ -1,0 +1,19 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./backend
+      tags:
+        - muzammilpiaic/voice-assistant-backend-${ENV}:latest
+        - muzammilpiaic/voice-assistant-backend-${ENV}:$UNIX_TIME
+      dockerfile: ./Dockerfile
+    image: muzammilpiaic/voice-assistant-backend-${ENV}
+    
+  frontend:
+    build:
+      context: ./frontend
+      tags:
+        - muzammilpiaic/voice-assistant-frontend-${ENV}:latest
+        - muzammilpiaic/voice-assistant-frontend-${ENV}:$UNIX_TIME
+      dockerfile: ./Dockerfile
+    image: muzammilpiaic/voice-assistant-frontend-${ENV}
